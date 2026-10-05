@@ -1,0 +1,48 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '@/utils/formatDate';
+import { Image } from 'astro:assets';
+
+interface Props {
+  entry: CollectionEntry<'work'>;
+}
+
+const { entry } = Astro.props;
+const { title, summary, date, tags, cover } = entry.data;
+
+const stamp = formatDate(date, 'compact');
+---
+
+<a
+  href={`/work/${entry.id}`}
+  class="group border-line hover:border-signal grid grid-cols-[4rem_1fr_auto] items-center gap-4 border-b py-5 transition-colors sm:grid-cols-[5rem_1fr_auto] sm:gap-6"
+>
+  {
+    cover ? (
+      <Image src={cover} alt="" width={160} class="h-12 w-16 rounded object-cover sm:h-14 sm:w-20" />
+    ) : (
+      <span class="bg-surface block h-12 w-16 rounded sm:h-14 sm:w-20" />
+    )
+  }
+
+<span class="min-w-0">
+    <span
+      class="font-display text-ink group-hover:text-signal block text-lg leading-snug transition-colors"
+    >
+      {title}
+    </span>
+    <span class="text-ink-soft mt-1 block text-sm">{summary}</span>
+  </span>
+
+  <span class="flex items-center gap-4">
+    <span class="text-ink-soft hidden font-mono text-[11px] md:block">
+      {tags.slice(0, 2).join(' · ')}
+    </span>
+    <span
+      aria-hidden="true"
+      class="text-ink-soft group-hover:text-signal transition-all group-hover:translate-x-1"
+    >
+      →
+    </span>
+  </span>
+</a>

@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Button from '@/components/Button.astro';
+import { SITE } from '@/site.config';
+
+import { Image } from 'astro:assets';
+import neil from '@/assets/images/neil.jpg';
+
+const tools = ['User research', 'Usability testing', 'Information architecture', 'Journey mapping', 'Figma Make', 'Prototyping', 'Design systems', 'Service design', 'Accessibility', 'Workshop facilitation'];
+---
+
+<BaseLayout title="About" description={`A bit about ${SITE.name} and how they work.`}>
+  <section class="mx-auto max-w-3xl px-6 pt-16 pb-24 sm:pt-24">
+    <p class="text-ink-soft mb-6 font-mono text-xs tracking-[0.2em] uppercase">About Neil</p>
+
+    <h1 class="font-display text-ink max-w-xl text-3xl font-medium sm:text-4xl">
+      {SITE.role}
+    </h1>
+
+ <Image src={neil} alt="Neil Berry" width={600} class="mt-8 rounded-lg" />
+    <div class="prose prose-sm sm:prose-base mt-8 max-w-xl">
+      <p>My passion for design started at university, when I built my very first website and became curious about how I could bring my ideas to life. I started teaching myself to code, experimenting, learning as I went, and quickly realised how much I enjoyed creating things from scratch.</p>
+
+<p>I own the end-to-end digital experience design for journeys across Aviva's Commercial digital products serving millions of customers.</p>
+
+<p>During the last 5 years, I've led UX on the migration of commercial insurance products onto a new platform to unlock future growth opportunities for the business, created re-usable patterns on a design system and created consistency across multiple products, platforms and channels. I'm really good at simplifying complexity into clear, trustworthy journeys.</p>
+
+<p>I like to invest time in deeply understanding customer needs, balancing any regulatory requirements and technical constraints, by using customer insight, data and testing to continuously improve experiences and customer outcomes. I'm equally comfortable sketching a flow, running a research session, or shaping the strategic direction of a product area.</p>
+
+<p>I'm now using AI throughout my workflow. From research synthesis and ideation through to prototyping using tools like Claude, Claude Code, Figma Make, alongside Figma and research platforms to move faster and explore more.</p>
+
+<p>I live in Tunbridge Wells, Kent with my wife (and fellow UXer), Christine, and our young son.</p>
+    </div>
+
+    <div class="mt-10">
+      <p class="text-ink-soft mb-3 font-mono text-xs tracking-[0.2em] uppercase">Skills</p>
+      <ul class="flex flex-wrap gap-2">
+        {
+          tools.map((tool) => (
+            <li class="border-line text-ink-soft rounded-full border px-3 py-1 font-mono text-xs">
+              {tool}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <Button href={`mailto:${SITE.email}`} class="mt-10">Get in touch</Button>
+  </section>
+</BaseLayout>
