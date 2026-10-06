@@ -11,6 +11,13 @@ const sorted = [...allWork].sort((a, b) => b.data.date.valueOf() - a.data.date.v
 const featured = sorted.filter((entry) => entry.data.featured);
 const rest = sorted.filter((entry) => !entry.data.featured);
 const selected = [...featured, ...rest].slice(0, 5);
+
+const stats = [
+  { label: 'Experience', value: '15+ years', note: 'Product and UX design' },
+  { label: 'Sector', value: 'Insurance', note: 'Plus fintech, charity, logistics and aviation' },
+  { label: 'Focus', value: 'Simplifying complexity', note: 'Clear, trustworthy journeys in regulated products' },
+  { label: 'Method', value: 'Evidence-led', note: 'Research, data and testing, sped up with AI' },
+];
 ---
 
 <BaseLayout title={SITE.name}>
@@ -29,9 +36,23 @@ const selected = [...featured, ...rest].slice(0, 5);
     </p>
 
     <div class="mt-8 flex flex-wrap items-center gap-3">
-      <Button href="/work" variant="solid">See my work →</Button>
-      <Button href="#contact" variant="ghost">Say hello</Button>
+      <Button href="/work" variant="solid">View Case Studies →</Button>
+      <Button href="#contact" variant="ghost">About Me</Button>
     </div>
+  </section>
+
+    <section class="mx-auto max-w-3xl px-6 pb-20">
+    <dl class="border-line grid grid-cols-2 gap-x-6 gap-y-8 border-t pt-8 sm:grid-cols-4">
+      {
+        stats.map((stat) => (
+          <div>
+            <dt class="text-ink-soft font-mono text-xs tracking-[0.2em] uppercase">{stat.label}</dt>
+            <dd class="text-ink mt-2 text-l leading-tight">{stat.value}</dd>
+            <dd class="text-ink-soft mt-2 text-xs">{stat.note}</dd>
+          </div>
+        ))
+      }
+    </dl>
   </section>
 
   <section id="work" class="mx-auto max-w-3xl px-6 pb-20">
