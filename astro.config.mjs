@@ -26,9 +26,9 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.google(),
-      name: 'Host Grotesk',
+      name: 'Geist',
       cssVariable: '--ff-body',
-      weights: ['400', '800'],
+      weights: ['400', '500'],
       subsets: ['latin'],
     },
   ],

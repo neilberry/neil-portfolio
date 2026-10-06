@@ -13,22 +13,22 @@
 :root {
   color-scheme: light;
 
-  --paper: #FBF6E6; /* page background */
-  --ink: #481c1e; /* primary text */
-  --ink-soft: #481c1e; /* secondary text */
+  --paper: #F1EEE7; /* page background */
+  --ink: #232323; /* primary text */
+  --ink-soft: #5b5a56; /* secondary text */
   --signal: #fe3c01; /* the one accent color */
-  --line: #481c1e; /* borders, rules */
+  --line: #DBD9D2; /* borders, rules */
   --surface: #efeeea; /* cards, raised panels */
 }
 
 .dark {
   color-scheme: dark;
 
-  --paper: #212121;
-  --ink: #E8E8E8;
-  --ink-soft: #E8E8E8;
+  --paper: #101114;
+  --ink: #ffffff;
+  --ink-soft: #dedede;
   --signal: #BB2B00;
-  --line: #E8E8E8;
+  --line: #26272c;
   --surface: #1a1b20;
 }
 
